@@ -1,6 +1,6 @@
 package com.company.controller;
 
-import com.company.service.WriteToFile;
+import com.company.service.Operations;
 
 import java.util.Date;
 
@@ -14,7 +14,7 @@ public class Run {
         System.out.println("RUNING..");
 
         //call writer class
-        WriteToFile wf = new WriteToFile();
+        Operations op = new Operations();
 
         Long currDate = System.currentTimeMillis();
         Date date = new Date(currDate);
@@ -26,14 +26,18 @@ public class Run {
         String content3 = "Ucuncu  satiri dosyaya yaz " + timeStr + "\n";
 
         //write to file
-        wf.writeFile(content1);
-        wf.writeFile(content2);
-        wf.writeFile(content3);
+        op.writeFile(content1);
+        op.writeFile(content2);
+        op.writeFile(content3);
 
         //append to file
-        wf.appendFile(content1);
-        wf.appendFile(content2);
-        wf.appendFile(content3);
+        op.appendFile(content1);
+        op.appendFile(content2);
+        op.appendFile(content3);
+
+
+        //read file
+        op.readFile("C:\\read-file.txt");
 
 
     }

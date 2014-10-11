@@ -1,13 +1,11 @@
 package com.company.service;
 
-import java.io.BufferedWriter;
-import java.io.File;
-import java.io.FileWriter;
+import java.io.*;
 
 /**
  * Created by levent.yildiz on 11.10.2014.
  */
-public class WriteToFile {
+public class Operations {
 
     public static void writeFile(String content) {
 
@@ -45,7 +43,7 @@ public class WriteToFile {
             }
 
         try {
-            FileWriter fw = new FileWriter(file.getAbsoluteFile(),true);
+            FileWriter fw = new FileWriter(file.getAbsoluteFile(), true);
             BufferedWriter bw = new BufferedWriter(fw);
             bw.write(content);
             bw.close();
@@ -55,5 +53,28 @@ public class WriteToFile {
         }
     }
 
+    public static void readFile(String path) {
+
+        BufferedReader br = null;
+
+        String sCurrentLine;
+        String filePath = path;
+
+        try {
+            br = new BufferedReader(new FileReader(filePath));
+            while ((sCurrentLine = br.readLine()) != null) {
+                System.out.println("READ ::::: " + sCurrentLine);
+            }
+        } catch (Exception e) {
+            e.printStackTrace();
+        } finally {
+            try {
+                br.close();
+            } catch (Exception e) {
+                e.printStackTrace();
+            }
+        }
+
+    }
 
 }
