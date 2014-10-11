@@ -30,7 +30,6 @@ public class Operations {
         }
     }
 
-
     public static void appendFile(String content) {
         File file = new File("append-file.txt");
 
